@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+  <PropertyGroup>
+    <Copyright>2018-2019 The Quras Project</Copyright>
+    <AssemblyTitle>Quras</AssemblyTitle>
+    <Version>1.1.0.5</Version>
+    <Authors>dotFund</Authors>
+    <TargetFrameworks>netstandard1.6;net461</TargetFrameworks>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>Quras.VM</AssemblyName>
+    <PackageId>Quras.VM</PackageId>
+    <PackageTags>Quras;Blockchain;Smart Contract;VM</PackageTags>
+    <PackageProjectUrl>https://github.com/dotFund/Pure</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/dotFund/Pure.git</RepositoryUrl>
+    <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.6' ">1.6</NetStandardImplicitPackageVersion>
+    <RootNamespace>Pure.VM</RootNamespace>
+    <Company>The Quras Project</Company>
+    <Description>Quras Anonymous Blockchain Virtual Machine with Script.</Description>
+    <AssemblyVersion>10.1803.17134.81</AssemblyVersion>
+    <FileVersion>1.1.0.5</FileVersion>
+    <Platforms>AnyCPU;x64</Platforms>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard1.6|AnyCPU'">
+    <DefineConstants>RELEASE;NETSTANDARD1_6</DefineConstants>
+    <DebugType>none</DebugType>
+    <DebugSymbols>False</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
+    <Reference Include="System.Numerics" />
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+</Project>
