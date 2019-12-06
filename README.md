@@ -1,7 +1,7 @@
 <p align="center">
 <img
     src="http://blockapi.quraswallet.org/quras/img/logo1.png"
-    height="250px">
+    height="200px">
 </p>
 
 # quras-vm
