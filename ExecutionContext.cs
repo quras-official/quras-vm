@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace Pure.VM
+namespace Quras.VM
 {
     public class ExecutionContext : IDisposable
     {

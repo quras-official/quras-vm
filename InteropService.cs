@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Pure.VM
+namespace Quras.VM
 {
     public class InteropService
     {

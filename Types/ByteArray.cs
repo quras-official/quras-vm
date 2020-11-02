@@ -1,9 +1,11 @@
 ﻿using System.Linq;
 
-namespace Pure.VM.Types
+namespace Quras.VM.Types
 {
     internal class ByteArray : StackItem
     {
+        public override bool IsArray => true;
+
         private byte[] value;
 
         public ByteArray(byte[] value)

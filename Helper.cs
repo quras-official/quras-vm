@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace Pure.VM
+namespace Quras.VM
 {
     internal static class Helper
     {

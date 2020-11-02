@@ -3,7 +3,7 @@ using System.IO;
 using System.Numerics;
 using System.Text;
 
-namespace Pure.VM
+namespace Quras.VM
 {
     public class ScriptBuilder : IDisposable
     {

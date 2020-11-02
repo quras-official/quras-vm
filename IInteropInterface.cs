@@ -1,4 +1,4 @@
-﻿namespace Pure.VM
+﻿namespace Quras.VM
 {
     public interface IInteropInterface
     {

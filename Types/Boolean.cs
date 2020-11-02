@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Numerics;
 
-namespace Pure.VM.Types
+namespace Quras.VM.Types
 {
     internal class Boolean : StackItem
     {

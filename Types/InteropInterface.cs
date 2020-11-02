@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Pure.VM.Types
+namespace Quras.VM.Types
 {
     internal class InteropInterface : StackItem
     {

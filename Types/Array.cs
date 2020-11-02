@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Pure.VM.Types
+namespace Quras.VM.Types
 {
     internal class Array : StackItem
     {

@@ -1,12 +1,12 @@
-﻿using Pure.VM.Types;
+﻿using Quras.VM.Types;
 using System;
 using System.Linq;
 using System.Numerics;
 using System.Text;
-using Array = Pure.VM.Types.Array;
-using Boolean = Pure.VM.Types.Boolean;
+using Array = Quras.VM.Types.Array;
+using Boolean = Quras.VM.Types.Boolean;
 
-namespace Pure.VM
+namespace Quras.VM
 {
     public abstract class StackItem : IEquatable<StackItem>
     {
@@ -33,6 +33,11 @@ namespace Pure.VM
         public virtual bool GetBoolean()
         {
             return GetByteArray().Any(p => p != 0);
+        }
+
+        public virtual byte GetByte()
+        {
+            return Byte.Parse(new BigInteger(GetByteArray()).ToString());
         }
 
         public abstract byte[] GetByteArray();
@@ -85,6 +90,11 @@ namespace Pure.VM
         public static implicit operator StackItem(StackItem[] value)
         {
             return new Array(value);
+        }
+
+        public static implicit operator StackItem(byte value)
+        {
+            return new BigInteger(value);
         }
     }
 }

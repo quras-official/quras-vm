@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Pure.VM
+namespace Quras.VM
 {
     public class RandomAccessStack<T> : IReadOnlyCollection<T>
     {

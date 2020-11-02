@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Pure.VM
+namespace Quras.VM
 {
     [Flags]
     public enum VMState : byte
