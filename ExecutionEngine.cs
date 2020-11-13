@@ -702,18 +702,34 @@ namespace Quras.VM
                                 return;
                             }
                             StackItem item = EvaluationStack.Pop();
-                            if (!item.IsArray)
+                            if (item.IsArray || item is ByteArray)
+                            {
+                                if (item is ByteArray)
+                                {
+                                    byte[] byteArray = item.GetByteArray();
+                                    if (index >= byteArray.Length)
+                                    {
+                                        State |= VMState.FAULT;
+                                        return;
+                                    }
+                                    EvaluationStack.Push(byteArray[index]);
+                                }
+                                else
+                                {
+                                    StackItem[] items = item.GetArray();
+                                    if (index >= items.Length)
+                                    {
+                                        State |= VMState.FAULT;
+                                        return;
+                                    }
+                                    EvaluationStack.Push(items[index]);
+                                }
+                            }
+                            else
                             {
                                 State |= VMState.FAULT;
                                 return;
                             }
-                            StackItem[] items = item.GetArray();
-                            if (index >= items.Length)
-                            {
-                                State |= VMState.FAULT;
-                                return;
-                            }
-                            EvaluationStack.Push(items[index]);
                         }
                         break;
                     case OpCode.SETITEM:
@@ -725,30 +741,33 @@ namespace Quras.VM
                             }
                             int index = (int)EvaluationStack.Pop().GetBigInteger();
                             StackItem arrItem = EvaluationStack.Pop();
-                            if (!arrItem.IsArray)
+                            if (arrItem.IsArray || arrItem is ByteArray)
                             {
-                                State |= VMState.FAULT;
-                                return;
-                            }
-                            if (arrItem is ByteArray)
-                            {
-                                byte[] items = arrItem.GetByteArray();
-                                if (index < 0 || index >= items.Length)
+                                if (arrItem is ByteArray)
                                 {
-                                    State |= VMState.FAULT;
-                                    return;
+                                    byte[] items = arrItem.GetByteArray();
+                                    if (index < 0 || index >= items.Length)
+                                    {
+                                        State |= VMState.FAULT;
+                                        return;
+                                    }
+                                    items[index] = newItem.GetByte();
                                 }
-                                items[index] = newItem.GetByte();
+                                else
+                                {
+                                    StackItem[] items = arrItem.GetArray();
+                                    if (index < 0 || index >= items.Length)
+                                    {
+                                        State |= VMState.FAULT;
+                                        return;
+                                    }
+                                    items[index] = newItem;
+                                }
                             }
                             else
                             {
-                                StackItem[] items = arrItem.GetArray();
-                                if (index < 0 || index >= items.Length)
-                                {
-                                    State |= VMState.FAULT;
-                                    return;
-                                }
-                                items[index] = newItem;
+                                State |= VMState.FAULT;
+                                return;
                             }
                         }
                         break;
